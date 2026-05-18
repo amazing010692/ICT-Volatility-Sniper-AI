@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/* ================================================
+   ICT Volatility Sniper AI — Elite Dark Theme
+   XAUUSD M1 Scalping Platform
+   ================================================ */
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-surface: #111118;
+  --bg-elevated: #16161f;
+  --border-primary: #252532;
+  --border-active: #3a3a4a;
+  --text-primary: #e4e4e7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-gold: #f59e0b;
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
+  --accent-red: #ef4444;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #252532 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #252532;
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a3a4a;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Elite card styling */
+.card-elite {
+  background: linear-gradient(135deg, #111118 0%, #0d0d14 100%);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.card-elite:hover {
+  border-color: #3a3a4a;
+}
+
+/* Grid background pattern */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(37, 37, 50, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 37, 50, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Signal glow effects */
+.glow-buy {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1), 0 0 40px rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.glow-sell {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.1), 0 0 40px rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.1), 0 0 40px rgba(245, 158, 11, 0.05);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Custom animations */
+@keyframes volatility {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes displacement {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+@keyframes sniper-lock {
+  0% { border-color: rgba(245, 158, 11, 0.3); }
+  50% { border-color: rgba(245, 158, 11, 0.6); }
+  100% { border-color: rgba(245, 158, 11, 0.3); }
+}
+
+@keyframes momentum {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-1px); }
+  75% { transform: translateY(1px); }
+}
+
+.animate-volatility {
+  animation: volatility 2s ease-in-out infinite;
+}
+
+.animate-displacement {
+  animation: displacement 1.5s ease-out infinite;
+}
+
+.animate-sniper-lock {
+  animation: sniper-lock 2s ease-in-out infinite;
+}
+
+.animate-momentum {
+  animation: momentum 1s ease-in-out infinite;
+}
+
+/* Gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 1px solid rgba(245, 158, 11, 0.5);
+  outline-offset: 2px;
+}
