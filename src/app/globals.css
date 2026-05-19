@@ -147,6 +147,7 @@ body {
 @media (max-width: 767px) {
   html, body {
     overflow-x: hidden;
+    max-width: 100vw;
   }
   
   /* Cards should not overflow */
@@ -158,5 +159,10 @@ body {
   /* Mono text should truncate */
   .font-mono {
     word-break: break-all;
+  }
+  
+  /* Universal min-width fix — prevents grid/flex children from overflowing */
+  * {
+    min-width: 0;
   }
 }

@@ -32,12 +32,12 @@ export default function DashboardPage() {
   }, [fetchData, startAutoRefresh]);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen max-w-[100vw] overflow-x-hidden">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-16 lg:ml-56 p-3 md:p-4 lg:p-6 pb-20 md:pb-6 bg-grid">
+      <main className="flex-1 md:ml-16 lg:ml-56 p-3 md:p-4 lg:p-6 pb-20 md:pb-6 bg-grid min-w-0 max-w-full overflow-x-hidden">
         {/* Header */}
         <div className="mb-4">
           <PairSelector />

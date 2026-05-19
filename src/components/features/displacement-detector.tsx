@@ -191,9 +191,9 @@ export function DisplacementDetector() {
 
 function PriceBox({ label, value, color }: { label: string; value: string; color: string }) {
   return (
-    <div className="rounded bg-[#0a0a0f] border border-[#252532] p-1.5 text-center">
-      <p className="text-[8px] text-zinc-600 uppercase">{label}</p>
-      <p className={cn("text-[11px] font-mono font-bold", color)}>{value}</p>
+    <div className="rounded bg-[#0a0a0f] border border-[#252532] p-1.5 text-center min-w-0 overflow-hidden">
+      <p className="text-[8px] text-zinc-600 uppercase truncate">{label}</p>
+      <p className={cn("text-[11px] font-mono font-bold truncate", color)}>{value}</p>
     </div>
   );
 }
