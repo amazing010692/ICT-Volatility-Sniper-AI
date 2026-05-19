@@ -137,3 +137,15 @@ body {
   outline: 1px solid rgba(245, 158, 11, 0.5);
   outline-offset: 2px;
 }
+
+/* Mobile safe area for bottom nav */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+}
+
+/* Prevent horizontal overflow on mobile */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}

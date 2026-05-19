@@ -37,7 +37,7 @@ export default function DashboardPage() {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 ml-16 lg:ml-56 p-4 lg:p-6 bg-grid">
+      <main className="flex-1 md:ml-16 lg:ml-56 p-3 md:p-4 lg:p-6 pb-20 md:pb-6 bg-grid">
         {/* Header */}
         <div className="mb-4">
           <PairSelector />
