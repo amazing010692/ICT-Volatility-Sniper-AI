@@ -95,7 +95,7 @@ export function DisplacementDetector() {
           </div>
 
           {/* Candle OHLC Details */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5">
             <PriceBox label="Open" value={lastCandle.open.toFixed(2)} color="text-zinc-300" />
             <PriceBox label="High" value={lastCandle.high.toFixed(2)} color="text-emerald-400" />
             <PriceBox label="Low" value={lastCandle.low.toFixed(2)} color="text-red-400" />
@@ -103,31 +103,31 @@ export function DisplacementDetector() {
           </div>
 
           {/* Displacement Metrics */}
-          <div className="grid grid-cols-3 gap-1.5">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-1.5">
             <PriceBox label="Body Size" value={`$${body.toFixed(2)}`} color="text-amber-400" />
             <PriceBox label="Range" value={`$${range.toFixed(2)}`} color="text-cyan-400" />
             <PriceBox label="ATR (7)" value={`$${atr.toFixed(2)}`} color="text-zinc-300" />
           </div>
 
           {/* Nearby Levels */}
-          <div className="rounded-lg bg-[#16161f] p-2.5 space-y-1.5">
+          <div className="rounded-lg bg-[#16161f] p-2.5 space-y-1.5 overflow-hidden">
             <p className="text-[9px] text-zinc-500 uppercase tracking-wider font-bold">Key Levels</p>
             {nearestOBAbove && (
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-zinc-500">OB Above (resistance)</span>
-                <span className="font-mono text-red-400">{nearestOBAbove.low.toFixed(2)} - {nearestOBAbove.high.toFixed(2)}</span>
+              <div className="flex items-center justify-between gap-2 text-[10px]">
+                <span className="text-zinc-500 shrink-0">OB Above</span>
+                <span className="font-mono text-red-400 truncate">{nearestOBAbove.low.toFixed(2)} - {nearestOBAbove.high.toFixed(2)}</span>
               </div>
             )}
             {nearestOBBelow && (
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-zinc-500">OB Below (support)</span>
-                <span className="font-mono text-emerald-400">{nearestOBBelow.low.toFixed(2)} - {nearestOBBelow.high.toFixed(2)}</span>
+              <div className="flex items-center justify-between gap-2 text-[10px]">
+                <span className="text-zinc-500 shrink-0">OB Below</span>
+                <span className="font-mono text-emerald-400 truncate">{nearestOBBelow.low.toFixed(2)} - {nearestOBBelow.high.toFixed(2)}</span>
               </div>
             )}
             {nearestFVG && (
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-zinc-500">Nearest FVG</span>
-                <span className="font-mono text-purple-400">{nearestFVG.low.toFixed(2)} - {nearestFVG.high.toFixed(2)}</span>
+              <div className="flex items-center justify-between gap-2 text-[10px]">
+                <span className="text-zinc-500 shrink-0">Nearest FVG</span>
+                <span className="font-mono text-purple-400 truncate">{nearestFVG.low.toFixed(2)} - {nearestFVG.high.toFixed(2)}</span>
               </div>
             )}
             <div className="flex items-center justify-between text-[10px]">
@@ -157,7 +157,7 @@ export function DisplacementDetector() {
           {/* No displacement — show current candle analysis */}
           <div className="rounded-lg bg-[#16161f] p-2.5">
             <p className="text-[10px] text-zinc-500 mb-1.5">Last Candle Analysis</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-2">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 mb-2">
               <PriceBox label="O" value={lastCandle.open.toFixed(2)} color="text-zinc-400" />
               <PriceBox label="H" value={lastCandle.high.toFixed(2)} color="text-zinc-400" />
               <PriceBox label="L" value={lastCandle.low.toFixed(2)} color="text-zinc-400" />
