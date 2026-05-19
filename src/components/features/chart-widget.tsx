@@ -62,7 +62,7 @@ export function ChartWidget() {
   }, [selectedPair, marketData]);
 
   return (
-    <Card className="h-[400px]">
+    <Card className="h-[320px] md:h-[400px]">
       <CardHeader>
         <div className="flex items-center gap-2">
           <BarChart3 className="h-4 w-4 text-cyan-400" />
@@ -72,7 +72,7 @@ export function ChartWidget() {
       </CardHeader>
       <div
         ref={containerRef}
-        className="tradingview-widget-container h-[340px] rounded-lg overflow-hidden bg-[#16161f]"
+        className="tradingview-widget-container h-[260px] md:h-[340px] rounded-lg overflow-hidden bg-[#16161f]"
       >
         <div className="flex items-center justify-center h-full">
           <span className="text-zinc-500 text-sm">Loading chart...</span>

@@ -150,7 +150,7 @@ export function BacktestPanel() {
             {/* Session Breakdown */}
             <div>
               <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-2 font-bold">Session Breakdown</p>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {summary.sessionBreakdown.map((s) => (
                   <div key={s.session} className="rounded-lg bg-[#16161f] p-2 text-center">
                     <p className="text-[10px] text-zinc-500">{s.session}</p>
@@ -236,7 +236,7 @@ function TradeRow({ trade }: { trade: BacktestTrade }) {
           </p>
         </div>
 
-        <div className="flex-1 grid grid-cols-3 gap-1">
+        <div className="flex-1 min-w-0 grid grid-cols-3 gap-1">
           <div>
             <p className="text-[9px] text-zinc-600">Entry</p>
             <p className="font-mono text-zinc-300">{trade.entry.toFixed(2)}</p>
@@ -278,7 +278,7 @@ function TradeRow({ trade }: { trade: BacktestTrade }) {
           {trade.session}
         </span>
         <span className="text-[9px] text-amber-400/70">{trade.confidence.toFixed(0)}%</span>
-        <span className="text-[9px] text-zinc-600 ml-auto truncate max-w-[200px]">{trade.reason}</span>
+        <span className="text-[9px] text-zinc-600 ml-auto truncate max-w-[140px] sm:max-w-[200px]">{trade.reason}</span>
       </div>
     </div>
   );

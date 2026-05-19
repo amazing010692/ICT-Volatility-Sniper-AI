@@ -111,7 +111,7 @@ export function MomentumScanner() {
       </div>
 
       {/* Velocity & ATR Metrics */}
-      <div className="grid grid-cols-4 gap-1.5 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-3">
         <MetricBox
           label="Velocity"
           value={`${momentum.candleVelocity.toFixed(1)}x`}
@@ -154,7 +154,7 @@ export function MomentumScanner() {
         />
         <MetricBox
           label="Compress"
-          value={momentum.compressionBars > 0 ? `${momentum.compressionBars} bars` : "—"}
+          value={momentum.compressionBars > 0 ? `${momentum.compressionBars}` : "—"}
           highlight={momentum.expansionImminent}
           color={momentum.expansionImminent ? "text-purple-400" : "text-zinc-300"}
         />
@@ -186,9 +186,9 @@ export function MomentumScanner() {
       {momentum.continuationFactors.length > 0 && (
         <div className="mt-2">
           <p className="text-[9px] text-zinc-600 uppercase tracking-wider mb-1">Factors</p>
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1 overflow-hidden">
             {momentum.continuationFactors.map((f, i) => (
-              <span key={i} className="text-[9px] px-1.5 py-0.5 rounded bg-[#16161f] text-zinc-400 border border-[#252532]">
+              <span key={i} className="text-[9px] px-1.5 py-0.5 rounded bg-[#16161f] text-zinc-400 border border-[#252532] truncate max-w-full">
                 ✓ {f}
               </span>
             ))}

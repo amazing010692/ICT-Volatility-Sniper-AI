@@ -148,4 +148,15 @@ body {
   html, body {
     overflow-x: hidden;
   }
+  
+  /* Cards should not overflow */
+  .card-elite {
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+  /* Mono text should truncate */
+  .font-mono {
+    word-break: break-all;
+  }
 }

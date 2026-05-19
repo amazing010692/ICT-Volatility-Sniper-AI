@@ -95,7 +95,7 @@ export function DisplacementDetector() {
           </div>
 
           {/* Candle OHLC Details */}
-          <div className="grid grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
             <PriceBox label="Open" value={lastCandle.open.toFixed(2)} color="text-zinc-300" />
             <PriceBox label="High" value={lastCandle.high.toFixed(2)} color="text-emerald-400" />
             <PriceBox label="Low" value={lastCandle.low.toFixed(2)} color="text-red-400" />
@@ -157,15 +157,15 @@ export function DisplacementDetector() {
           {/* No displacement — show current candle analysis */}
           <div className="rounded-lg bg-[#16161f] p-2.5">
             <p className="text-[10px] text-zinc-500 mb-1.5">Last Candle Analysis</p>
-            <div className="grid grid-cols-4 gap-1.5 mb-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-2">
               <PriceBox label="O" value={lastCandle.open.toFixed(2)} color="text-zinc-400" />
               <PriceBox label="H" value={lastCandle.high.toFixed(2)} color="text-zinc-400" />
               <PriceBox label="L" value={lastCandle.low.toFixed(2)} color="text-zinc-400" />
               <PriceBox label="C" value={lastCandle.close.toFixed(2)} color={isBullish ? "text-emerald-400" : "text-red-400"} />
             </div>
-            <div className="flex gap-3 text-[10px]">
+            <div className="flex flex-wrap gap-2 text-[10px]">
               <span className="text-zinc-500">Body: <span className="text-zinc-300 font-mono">${body.toFixed(2)}</span></span>
-              <span className="text-zinc-500">ATR ratio: <span className="text-zinc-300 font-mono">{bodyToATR.toFixed(2)}x</span></span>
+              <span className="text-zinc-500">ATR: <span className="text-zinc-300 font-mono">{bodyToATR.toFixed(2)}x</span></span>
               <span className="text-zinc-500">Dom: <span className="text-zinc-300">{(bodyRatio * 100).toFixed(0)}%</span></span>
             </div>
           </div>

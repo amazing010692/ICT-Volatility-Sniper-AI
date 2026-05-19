@@ -19,7 +19,7 @@ export function Card({ children, className, glow = "none" }: CardProps) {
   return (
     <div
       className={cn(
-        "card-elite rounded-xl border border-[#252532] bg-[#111118] p-4",
+        "card-elite rounded-xl border border-[#252532] bg-[#111118] p-3 md:p-4 overflow-hidden",
         glowClasses[glow],
         className
       )}

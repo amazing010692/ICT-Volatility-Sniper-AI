@@ -58,7 +58,7 @@ export function SessionClock() {
 
       {/* Time display — both UTC and Local */}
       <div className="flex items-center justify-between mb-2" suppressHydrationWarning>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
           {/* Local Time (primary) */}
           <div>
             <p className="text-[9px] text-zinc-600 uppercase tracking-wider">Local</p>

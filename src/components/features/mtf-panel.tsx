@@ -63,7 +63,7 @@ export function MTFPanel() {
       </div>
 
       {/* Timeframe Grid */}
-      <div className="grid grid-cols-4 gap-2 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
         {timeframes.map((tf) => (
           <div key={tf.label} className="rounded-lg bg-[#16161f] p-2 text-center">
             <p className="text-xs text-zinc-500 mb-1">{tf.label}</p>

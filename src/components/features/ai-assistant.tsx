@@ -52,7 +52,7 @@ export function AIAssistant() {
           .filter(([key]) => key !== "overall")
           .map(([key, value]) => (
             <div key={key} className="flex items-center gap-2">
-              <span className="text-xs text-zinc-500 w-20 capitalize">{key}</span>
+              <span className="text-xs text-zinc-500 w-16 sm:w-20 capitalize truncate">{key}</span>
               <Progress
                 value={value}
                 variant={value > 70 ? "success" : value > 50 ? "warning" : "danger"}
