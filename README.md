@@ -2,6 +2,8 @@
 
 **Elite AI-Powered ICT Aggressive M1 Scalping Platform**
 
+🚀 **[Live Demo →](https://ict-volatility-sniper-ai.vercel.app)**
+
 An institutional-grade trading assistant specialized in **volatility expansion** and **momentum ignition** on XAUUSD (Gold). Built to catch explosive moves on the 1-minute timeframe with sniper precision.
 
 ## Core Philosophy
