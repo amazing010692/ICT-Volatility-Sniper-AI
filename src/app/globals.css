@@ -60,6 +60,11 @@ body {
   border-color: #3a3a4a;
 }
 
+/* Chart card needs visible overflow for time axis */
+.chart-card.card-elite {
+  overflow: visible;
+}
+
 /* Grid background pattern */
 .bg-grid {
   background-image:
