@@ -53,10 +53,24 @@ interface TwelveDataQuote {
 
 // In-memory cache for candle data
 let candleCache: { candles: Candle[]; timestamp: number; symbol: string; interval: string } | null = null;
-const CANDLE_CACHE_TTL = 55_000; // 55 seconds — just under 1 minute for M1 candles
+const CANDLE_CACHE_TTL = 60_000; // 60 seconds — matches M1 candle close interval
 
 let quoteCache: { data: { price: number; high: number; low: number; open: number; volume: number }; timestamp: number; symbol: string } | null = null;
-const QUOTE_CACHE_TTL = 10_000; // 10 seconds
+const QUOTE_CACHE_TTL = 15_000; // 15 seconds
+
+/**
+ * Check if current time is within live trading window
+ * Live window: 2:00 PM to 2:00 AM PH time (06:00 to 18:00 UTC)
+ * PH time = UTC + 8
+ * 2:00 PM PH = 06:00 UTC
+ * 2:00 AM PH = 18:00 UTC
+ */
+function isWithinLiveWindow(): boolean {
+  const now = new Date();
+  const utcHour = now.getUTCHours();
+  // 06:00 UTC (2PM PH) to 18:00 UTC (2AM PH)
+  return utcHour >= 6 && utcHour < 18;
+}
 
 export async function fetchRealCandles(
   symbol: string = "XAU/USD",
@@ -66,6 +80,12 @@ export async function fetchRealCandles(
   const apiKey = process.env.TWELVEDATA_API_KEY;
   if (!apiKey) {
     throw new Error("TWELVEDATA_API_KEY not configured");
+  }
+
+  // Outside live trading window — don't consume API credits
+  if (!isWithinLiveWindow()) {
+    if (candleCache) return candleCache.candles;
+    throw new Error("Outside live trading window (2PM-2AM PH)");
   }
 
   // Return cached data if fresh enough
@@ -134,6 +154,12 @@ export async function fetchRealQuote(
   const apiKey = process.env.TWELVEDATA_API_KEY;
   if (!apiKey) {
     throw new Error("TWELVEDATA_API_KEY not configured");
+  }
+
+  // Outside live trading window — don't consume API credits
+  if (!isWithinLiveWindow()) {
+    if (quoteCache) return quoteCache.data;
+    throw new Error("Outside live trading window (2PM-2AM PH)");
   }
 
   // Return cached quote if fresh
