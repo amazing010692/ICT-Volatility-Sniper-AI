@@ -190,23 +190,25 @@ Standard checklist-based scoring with aggressive thresholds. Momentum and liquid
 
 ---
 
-## Live Price Integration
+## Live Market Data Integration
 
-The platform fetches **real live XAUUSD prices** from [gold-api.com](https://gold-api.com) (free, no API key, no rate limits). The entry price always reflects the actual current gold market price.
+The platform uses **real OHLC candle data** from [TwelveData](https://twelvedata.com) for XAUUSD. The AI engine analyzes the same real market structure you see on the TradingView chart.
 
-**What's real:**
-- ✅ Current price / entry price — live from gold-api.com (updates every 15s)
+**What's real (XAUUSD):**
+- ✅ M1 OHLC candles — real from TwelveData API
+- ✅ Signal engine — analyzes real price action
+- ✅ Momentum engine — real candle velocity, ATR, displacement
+- ✅ SMC engine — real BOS, MSS, FVGs, Order Blocks
+- ✅ Liquidity analysis — real structure-based levels
+- ✅ AI reasoning — based on real market conditions
 - ✅ TradingView chart — real market data (embedded widget)
 - ✅ Session clock — real UTC/local time with kill zone detection
 
-**What's simulated:**
-- ⚠️ Candle OHLC patterns — randomly generated around the live price
-- ⚠️ Displacement/momentum signals — based on simulated candle shapes, not real price action
-- ⚠️ Order blocks, FVGs, liquidity levels — derived from simulated structure
+**Other pairs (EURUSD, GBPJPY, etc.):**
+- ⚠️ Candle data is simulated around live prices
+- ⚠️ Signals based on simulated candle patterns
 
-**Persistent candle system:** Candles don't regenerate on every refresh. A new candle is only added when a new minute starts, and existing history is preserved. This keeps signals stable between refreshes. However, the candle patterns themselves are fabricated — they don't reflect real market structure.
-
-**To get fully real signals**, connect a real candle data source (MT5 bridge, broker API, or paid data feed). The signal engine, momentum engine, and SMC engine are all production-ready — they just need real OHLC data to analyze.
+**Data refresh:** Every 30 seconds with smart caching to stay within free API limits.
 
 ---
 

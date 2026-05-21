@@ -95,8 +95,8 @@ export const TRADING_PAIRS: Record<TradingPair, { name: string; pipSize: number;
   US30: { name: "Dow Jones 30", pipSize: 0.01, avgSpread: 2.0, category: "Indices" },
 };
 
-/** Auto-refresh interval in milliseconds */
-export const REFRESH_INTERVAL = 10_000;
+/** Auto-refresh interval in milliseconds — 30s to respect TwelveData rate limits */
+export const REFRESH_INTERVAL = 30_000;
 
 /** Maximum candles to fetch per request */
 export const MAX_CANDLES = 200;
